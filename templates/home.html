@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class=" col-md-6 " >
+
+<section class="contact" id="contact">
+        <h2 class="heading">TO<span>DO!</span></h2>
+
+        <form method="post" >
+           {% csrf_token %}
+         <div class="input-box">
+              <input type="text" name="task" placeholder="Task name">
+            <input type="text" name="priority" placeholder="priority">
+              <input type="date" name="date">
+         </div>
+
+
+
+         <input type="submit" class="btn btn-success">
+
+        </form>
+    </section>
+
+    </div>
+
+          <div class=" col-md-6">
+              <h4>Task to be completed</h4>
+                {% for i in task %}
+              <div class="card">
+                  <div class="card-body">
+                      <h5 class="card-title">{{i.name}}</h5>
+                      <p><b> {{i.priority}}</b></p>
+                      <p><b> {{i.date}}</b></p>
+                      <a class="btn btn-primary btn-sm" href="{% url 'delete' i.id %}">Done</a>
+                      <a class="btn btn-secondary btn-sm" href="{% url 'update' i.id %}">Update</a>
+
+
+                  </div>
+              </div>
+           <br>
+            {% endfor %}
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+{% endblock %}

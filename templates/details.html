@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block body %}
+  <div class="card">
+                  <div class="card-body">
+                      <h5 class="card-title">{{i.name}}</h5>
+                      <p><b> {{i.priority}}</b></p>
+                      <p><b> {{i.date}}</b></p>
+                      <a class="btn btn-primary btn-sm" href="{% url 'deleteview' i.id %}">Delete View</a>
+
+                      <a class="btn btn-light btn-sm" href="{% url 'updateview' i.id %}">Update View</a>
+
+                  </div>
+              </div>
+{% endblock %}

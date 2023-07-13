@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="container">
+    <div class="row">
+
+
+          <div class=" col-md-12">
+              <h4>Task to be completed</h4>
+                {% for i in task %}
+              <div class="card">
+                  <div class="card-body">
+                      <h5 class="card-title">{{i.name}}</h5>
+                      <p><b> {{i.priority}}</b></p>
+                      <p><b> {{i.date}}</b></p>
+
+                      <a class="btn btn-light btn-sm" href="{% url 'detailview' i.id %}">Detail view</a>
+
+                  </div>
+              </div>
+           <br>
+            {% endfor %}
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+{% endblock %}
