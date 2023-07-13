@@ -41,7 +41,7 @@ def add(request):
         date = request.POST.get('date', '')
         task = Task(name=name, priority=priority, date=date)
         task.save()
-    return render(request, "home.html", {'task': task1})
+    return render(request, "index.html", {'task': task1})
 
 
 def delete(requset, taskid):
